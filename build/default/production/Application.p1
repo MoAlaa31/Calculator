@@ -52,15 +52,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54 ./ECU_layer/Chr_LCD/ecu_chr_lcd.h
 [; ;./ECU_layer/Chr_LCD/ecu_chr_lcd.h: 54: Std_ReturnType lcd_4bit_send_char_data_pos(const chr_lcd_4bit_t *lcd, uint8 row, uint8 column, uint8 data);
 [v _lcd_4bit_send_char_data_pos `(uc ~T0 @X0 0 ef4`*CS280`uc`uc`uc ]
-"26 ./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h
-[; ;./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h: 26: void infixToPostfix(const char *infix, uint32 *postfix);
-[v _infixToPostfix `(v ~T0 @X0 0 ef2`*Cuc`*ul ]
-"27
-[; ;./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h: 27: uint32 evaluate_Postfix(const uint32 *postfix);
-[v _evaluate_Postfix `(ul ~T0 @X0 0 ef1`*Cul ]
-"67 ./ECU_layer/Chr_LCD/ecu_chr_lcd.h
-[; ;./ECU_layer/Chr_LCD/ecu_chr_lcd.h: 67: Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str);
-[v _convert_uint32_to_string `(uc ~T0 @X0 0 ef2`ul`*uc ]
+"31 ./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h
+[; ;./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h: 31: void infixToPostfix(const char *infix, char *postfix);
+[v _infixToPostfix `(v ~T0 @X0 0 ef2`*Cuc`*uc ]
+"32
+[; ;./ECU_layer/../Algorithms/Infix_to_postfix/infix_to_post.h: 32: void evaluatePostfix(const char *postfix, float *result);
+[v _evaluatePostfix `(v ~T0 @X0 0 ef2`*Cuc`*f ]
+"109 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "54 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\string.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\string.h: 54: size_t strlen (const char *);
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
@@ -351,11 +351,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Application.c: 12: char infix[100];
 [v _infix `uc ~T0 @X0 -> 100 `i e ]
 "13
-[; ;Application.c: 13: uint32 postfix[20];
-[v _postfix `ul ~T0 @X0 -> 20 `i e ]
+[; ;Application.c: 13: char postfix[100];
+[v _postfix `uc ~T0 @X0 -> 100 `i e ]
 "14
-[; ;Application.c: 14: uint32 result;
-[v _result `ul ~T0 @X0 1 e ]
+[; ;Application.c: 14: float result;
+[v _result `f ~T0 @X0 1 e ]
 "15
 [; ;Application.c: 15: uint8 arr[11];
 [v _arr `uc ~T0 @X0 -> 11 `i e ]
@@ -431,14 +431,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _application_intialize ..  ]
 "24
 [; ;Application.c: 24:     while(1){
-[e :U 285 ]
+[e :U 286 ]
 {
 "25
 [; ;Application.c: 25:         ret = keypad_get_value(&keypad_1, &val);
 [e = _ret ( _keypad_get_value (2 , -> &U _keypad_1 `*CS279 &U _val ]
 "26
 [; ;Application.c: 26:         if((val == 'A')&&(counter == 0)){
-[e $ ! && == -> _val `ui -> 65 `ui == -> _counter `i -> 0 `i 287  ]
+[e $ ! && == -> _val `ui -> 65 `ui == -> _counter `i -> 0 `i 288  ]
 {
 "27
 [; ;Application.c: 27:             led_turn_on(&led_1);
@@ -461,11 +461,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;Application.c: 34:         }
 }
-[e $U 288  ]
+[e $U 289  ]
 "35
 [; ;Application.c: 35:         else if((val == 'A')&&(counter == 1)){
-[e :U 287 ]
-[e $ ! && == -> _val `ui -> 65 `ui == -> _counter `i -> 1 `i 289  ]
+[e :U 288 ]
+[e $ ! && == -> _val `ui -> 65 `ui == -> _counter `i -> 1 `i 290  ]
 {
 "36
 [; ;Application.c: 36:             counter = 0;
@@ -497,57 +497,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;Application.c: 45:         }
 }
-[e $U 290  ]
+[e $U 291  ]
 "46
 [; ;Application.c: 46:         else{ }
-[e :U 289 ]
+[e :U 290 ]
 {
 }
-[e :U 290 ]
-[e :U 288 ]
+[e :U 291 ]
+[e :U 289 ]
 "49
 [; ;Application.c: 49:         for(int i = 0; i<7; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 291  ]
-[e $U 292  ]
-[e :U 291 ]
+[e $ < _i -> 7 `i 292  ]
+[e $U 293  ]
+[e :U 292 ]
 {
 "50
 [; ;Application.c: 50:             if(val == operators[i]){
-[e $ ! == -> _val `i -> *U + &U _operators * -> -> _i `ui `ux -> -> # *U &U _operators `ui `ux `i 294  ]
+[e $ ! == -> _val `i -> *U + &U _operators * -> -> _i `ui `ux -> -> # *U &U _operators `ui `ux `i 295  ]
 {
 "51
 [; ;Application.c: 51:                 flag = 1;
 [e = _flag -> -> 1 `i `uc ]
 "52
 [; ;Application.c: 52:                 break;
-[e $U 292  ]
+[e $U 293  ]
 "53
 [; ;Application.c: 53:             }
 }
-[e $U 295  ]
+[e $U 296  ]
 "54
 [; ;Application.c: 54:             else{ }
-[e :U 294 ]
+[e :U 295 ]
 {
 }
-[e :U 295 ]
+[e :U 296 ]
 "55
 [; ;Application.c: 55:         }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 291  ]
-[e :U 292 ]
+[e $ < _i -> 7 `i 292  ]
+[e :U 293 ]
 }
 "56
 [; ;Application.c: 56:         if((flag != 1)&&(counter == 1)&&(val != '#')){
-[e $ ! && && != -> _flag `i -> 1 `i == -> _counter `i -> 1 `i != -> _val `ui -> 35 `ui 296  ]
+[e $ ! && && != -> _flag `i -> 1 `i == -> _counter `i -> 1 `i != -> _val `ui -> 35 `ui 297  ]
 {
 "57
 [; ;Application.c: 57:             if(equal_flag == 1){
-[e $ ! == -> _equal_flag `i -> 1 `i 297  ]
+[e $ ! == -> _equal_flag `i -> 1 `i 298  ]
 {
 "58
 [; ;Application.c: 58:                 ret = lcd_4bit_send_command(&lcd_1, 0x01);
@@ -573,7 +573,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;Application.c: 65:             }
 }
-[e :U 297 ]
+[e :U 298 ]
 "66
 [; ;Application.c: 66:             infix[res_counter] = val;
 [e = *U + &U _infix * -> _res_counter `ux -> -> # *U &U _infix `ui `ux -> _val `uc ]
@@ -589,19 +589,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [; ;Application.c: 70:         }
 }
-[e $U 298  ]
+[e $U 299  ]
 "71
 [; ;Application.c: 71:         else if((flag == 1)&&(counter == 1)){
-[e :U 296 ]
-[e $ ! && == -> _flag `i -> 1 `i == -> _counter `i -> 1 `i 299  ]
+[e :U 297 ]
+[e $ ! && == -> _flag `i -> 1 `i == -> _counter `i -> 1 `i 300  ]
 {
 "72
 [; ;Application.c: 72:             switch (val){
-[e $U 301  ]
+[e $U 302  ]
 {
 "73
 [; ;Application.c: 73:                 case ('/'):
-[e :U 302 ]
+[e :U 303 ]
 "74
 [; ;Application.c: 74:                     op[0] = '*';
 [e = *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux -> -> 42 `ui `uc ]
@@ -613,10 +613,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _res_counter -> -> 1 `i `uc ]
 "77
 [; ;Application.c: 77:                     break;
-[e $U 300  ]
+[e $U 301  ]
 "78
 [; ;Application.c: 78:                 case ('E'):
-[e :U 303 ]
+[e :U 304 ]
 "79
 [; ;Application.c: 79:                     op[0] = '/';
 [e = *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux -> -> 47 `ui `uc ]
@@ -628,10 +628,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _res_counter -> -> 1 `i `uc ]
 "82
 [; ;Application.c: 82:                     break;
-[e $U 300  ]
+[e $U 301  ]
 "83
 [; ;Application.c: 83:                 case ('*'):
-[e :U 304 ]
+[e :U 305 ]
 "84
 [; ;Application.c: 84:                     op[0] = '-';
 [e = *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux -> -> 45 `ui `uc ]
@@ -643,10 +643,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _res_counter -> -> 1 `i `uc ]
 "87
 [; ;Application.c: 87:                     break;
-[e $U 300  ]
+[e $U 301  ]
 "88
 [; ;Application.c: 88:                 case ('+'):
-[e :U 305 ]
+[e :U 306 ]
 "89
 [; ;Application.c: 89:                     op[0] = '+';
 [e = *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux -> -> 43 `ui `uc ]
@@ -658,10 +658,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _res_counter -> -> 1 `i `uc ]
 "92
 [; ;Application.c: 92:                     break;
-[e $U 300  ]
+[e $U 301  ]
 "93
 [; ;Application.c: 93:                 case ('='):
-[e :U 306 ]
+[e :U 307 ]
 "94
 [; ;Application.c: 94:                     op[0] = '=';
 [e = *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux -> -> 61 `ui `uc ]
@@ -673,38 +673,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _infix * -> _res_counter `ux -> -> # *U &U _infix `ui `ux -> -> 0 `ui `uc ]
 "97
 [; ;Application.c: 97:                     break;
-[e $U 300  ]
+[e $U 301  ]
 "98
 [; ;Application.c: 98:                 default:;
-[e :U 307 ]
+[e :U 308 ]
 "99
 [; ;Application.c: 99:             }
 }
-[e $U 300  ]
+[e $U 301  ]
+[e :U 302 ]
+[e [\ -> _val `i , $ -> -> 47 `ui `i 303
+ , $ -> -> 69 `ui `i 304
+ , $ -> -> 42 `ui `i 305
+ , $ -> -> 43 `ui `i 306
+ , $ -> -> 61 `ui `i 307
+ 308 ]
 [e :U 301 ]
-[e [\ -> _val `i , $ -> -> 47 `ui `i 302
- , $ -> -> 69 `ui `i 303
- , $ -> -> 42 `ui `i 304
- , $ -> -> 43 `ui `i 305
- , $ -> -> 61 `ui `i 306
- 307 ]
-[e :U 300 ]
 "100
 [; ;Application.c: 100:             ret = lcd_4bit_send_char_data_pos(&lcd_1, 1, pos, op[0]);
 [e = _ret ( _lcd_4bit_send_char_data_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc _pos *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux ]
 "101
 [; ;Application.c: 101:             if(op[0] == '='){
-[e $ ! == -> *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux `ui -> 61 `ui 308  ]
+[e $ ! == -> *U + &U _op * -> -> -> 0 `i `ui `ux -> -> # *U &U _op `ui `ux `ui -> 61 `ui 309  ]
 {
 "102
 [; ;Application.c: 102:                 infixToPostfix(infix, postfix);
 [e ( _infixToPostfix (2 , -> &U _infix `*Cuc &U _postfix ]
 "103
-[; ;Application.c: 103:                 result = evaluate_Postfix(postfix);
-[e = _result ( _evaluate_Postfix (1 -> &U _postfix `*Cul ]
+[; ;Application.c: 103:                 evaluatePostfix(postfix, &result);
+[e ( _evaluatePostfix (2 , -> &U _postfix `*Cuc &U _result ]
 "104
-[; ;Application.c: 104:                 ret = convert_uint32_to_string(result, arr);
-[e = _ret ( _convert_uint32_to_string (2 , _result &U _arr ]
+[; ;Application.c: 104:                 sprintf(arr, "%f", result);
+[e ( _sprintf (1 , (. , -> &U _arr `*uc :s 2C -> _result `d ]
 "105
 [; ;Application.c: 105:                 ret = lcd_4bit_send_string_pos(&lcd_1, 4, 20-strlen(arr), arr);
 [e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 4 `i `uc -> - -> -> 20 `i `ui ( _strlen (1 -> &U _arr `*Cuc `uc &U _arr ]
@@ -712,12 +712,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Application.c: 106:                 memset(infix, '\0', 100);
 [e ( _memset (3 , , -> &U _infix `*v -> -> 0 `ui `i -> -> 100 `i `ui ]
 "107
-[; ;Application.c: 107:                 memset(postfix, '\0', 20);
-[e ( _memset (3 , , -> &U _postfix `*v -> -> 0 `ui `i -> -> 20 `i `ui ]
+[; ;Application.c: 107:                 memset(postfix, '\0', 100);
+[e ( _memset (3 , , -> &U _postfix `*v -> -> 0 `ui `i -> -> 100 `i `ui ]
 "108
 [; ;Application.c: 108:             }
 }
-[e :U 308 ]
+[e :U 309 ]
 "109
 [; ;Application.c: 109:             pos++;
 [e ++ _pos -> -> 1 `i `uc ]
@@ -727,8 +727,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;Application.c: 111:         }
 }
+[e :U 300 ]
 [e :U 299 ]
-[e :U 298 ]
 "113
 [; ;Application.c: 113:         flag = 0;
 [e = _flag -> -> 0 `i `uc ]
@@ -738,16 +738,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "115
 [; ;Application.c: 115:     }
 }
-[e :U 284 ]
-[e $U 285  ]
-[e :U 286 ]
+[e :U 285 ]
+[e $U 286  ]
+[e :U 287 ]
 "116
 [; ;Application.c: 116:     return (0);
 [e ) -> 0 `i ]
-[e $UE 283  ]
+[e $UE 284  ]
 "117
 [; ;Application.c: 117: }
-[e :UE 283 ]
+[e :UE 284 ]
 }
 "119
 [; ;Application.c: 119: void application_intialize(void){
@@ -764,6 +764,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _ecu_layer_intialize ..  ]
 "122
 [; ;Application.c: 122: }
-[e :UE 309 ]
+[e :UE 310 ]
 }
+[p f _sprintf 8396800 ]
+[a 2C 37 102 0 ]
 [a 1C 67 65 83 73 79 0 ]

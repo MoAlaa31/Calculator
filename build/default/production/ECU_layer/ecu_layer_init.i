@@ -5304,13 +5304,18 @@ double yn(int, double);
 
 
 struct Stack_t {
-    uint32 data[20];
+    float data[20];
+    int top;
+};
+
+struct Stack {
+    char data[100];
     int top;
 };
 
 
-void infixToPostfix(const char *infix, uint32 *postfix);
-uint32 evaluate_Postfix(const uint32 *postfix);
+void infixToPostfix(const char *infix, char *postfix);
+void evaluatePostfix(const char *postfix, float *result);
 # 21 "ECU_layer/ecu_layer_init.h" 2
 
 void ecu_layer_intialize(void);

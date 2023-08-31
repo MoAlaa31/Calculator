@@ -5306,13 +5306,18 @@ double yn(int, double);
 
 
 struct Stack_t {
-    uint32 data[20];
+    float data[20];
+    int top;
+};
+
+struct Stack {
+    char data[100];
     int top;
 };
 
 
-void infixToPostfix(const char *infix, uint32 *postfix);
-uint32 evaluate_Postfix(const uint32 *postfix);
+void infixToPostfix(const char *infix, char *postfix);
+void evaluatePostfix(const char *postfix, float *result);
 # 21 "./ECU_layer/ecu_layer_init.h" 2
 
 void ecu_layer_intialize(void);
@@ -5338,8 +5343,8 @@ void application_intialize(void);
 
 uint8 val = 0;
 char infix[100];
-uint32 postfix[20];
-uint32 result;
+char postfix[100];
+float result;
 uint8 arr[11];
 uint8 counter = 0, flag = 0, pos = 1, sup_pos = 1, res_counter = 0, equal_flag = 0;
 uint8 op[2] = "\0";
@@ -5428,11 +5433,11 @@ int main() {
             ret = lcd_4bit_send_char_data_pos(&lcd_1, 1, pos, op[0]);
             if(op[0] == '='){
                 infixToPostfix(infix, postfix);
-                result = evaluate_Postfix(postfix);
-                ret = convert_uint32_to_string(result, arr);
+                evaluatePostfix(postfix, &result);
+                sprintf(arr, "%f", result);
                 ret = lcd_4bit_send_string_pos(&lcd_1, 4, 20-strlen(arr), arr);
                 memset(infix, '\0', 100);
-                memset(postfix, '\0', 20);
+                memset(postfix, '\0', 100);
             }
             pos++;
             num_1 = 0;

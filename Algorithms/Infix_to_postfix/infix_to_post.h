@@ -18,12 +18,17 @@
 #define MAXSIZE    20
 
 struct Stack_t {
-    uint32 data[MAXSIZE]; // Assuming a maximum of 100 characters
+    float data[MAXSIZE]; // Assuming a maximum of 100 characters
+    int top;
+};
+
+struct Stack {
+    char data[100]; // Assuming a maximum of 100 characters
     int top;
 };
 
 /* Section : Functions Declarations */
-void infixToPostfix(const char *infix, uint32 *postfix);
-uint32 evaluate_Postfix(const uint32 *postfix);
+void infixToPostfix(const char *infix, char *postfix);
+void evaluatePostfix(const char *postfix, float *result);
 #endif	/* INFIX_TO_POST_H */
 

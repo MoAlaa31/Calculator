@@ -1,550 +1,490 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"162 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\math.h
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\math.h: 162: float fabsf(float);
-[v _fabsf `(f ~T0 @X0 0 ef1`f ]
-[v F814 `(f ~T0 @X0 1 tf2`f`f ]
-"324
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\math.h: 324: __attribute__((nonreentrant)) float powf(float, float);
-[v _powf `JF814 ~T0 @X0 0 e ]
 "20 Algorithms/Infix_to_postfix/infix_to_post.h
 [; ;Algorithms/Infix_to_postfix/infix_to_post.h: 20: struct Stack_t {
-[s S9 `ul -> 20 `i `i 1 ]
+[s S9 `f -> 20 `i `i 1 ]
 [n S9 Stack_t data top ]
-"16 Algorithms/Infix_to_postfix/infix_to_post.c
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 16: uint32 operator_type(char input) {
-[v _operator_type `(ul ~T0 @X0 1 ef1`uc ]
-{
-[e :U _operator_type ]
-[v _input `uc ~T0 @X0 1 r1 ]
-[f ]
-"17
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 17:     if (input == '+'){
-[e $ ! == -> _input `ui -> 43 `ui 11  ]
-{
-"18
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 18:         return 4294967295;
-[e ) -> -> 4294967295 `o `ul ]
-[e $UE 10  ]
-"19
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 19:     }
-}
-[e $U 12  ]
-"20
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 20:     else if (input == '*'){
-[e :U 11 ]
-[e $ ! == -> _input `ui -> 42 `ui 13  ]
-{
-"21
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 21:         return 4294967294;
-[e ) -> -> 4294967294 `o `ul ]
-[e $UE 10  ]
-"22
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 22:     }
-}
-[e $U 14  ]
-"23
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 23:     else if (input == '/'){
-[e :U 13 ]
-[e $ ! == -> _input `ui -> 47 `ui 15  ]
-{
-"24
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 24:         return 4294967293;
-[e ) -> -> 4294967293 `o `ul ]
-[e $UE 10  ]
 "25
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 25:     }
-}
-[e $U 16  ]
-"26
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 26:     else if (input == '-'){
-[e :U 15 ]
-[e $ ! == -> _input `ui -> 45 `ui 17  ]
-{
-"27
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 27:         return 4294967292;
-[e ) -> -> 4294967292 `o `ul ]
-[e $UE 10  ]
-"28
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 28:     }
-}
-[e :U 17 ]
-[e :U 16 ]
-[e :U 14 ]
-[e :U 12 ]
-"29
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 29:     return 0;
-[e ) -> -> -> 0 `i `l `ul ]
-[e $UE 10  ]
-"30
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 30: }
-[e :UE 10 ]
-}
-"32
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 32: int Are_equal(float num_1, float num_2){
-[v _Are_equal `(i ~T0 @X0 1 ef2`f`f ]
-{
-[e :U _Are_equal ]
-[v _num_1 `f ~T0 @X0 1 r1 ]
-[v _num_2 `f ~T0 @X0 1 r2 ]
-[f ]
-"33
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 33:     if (fabsf(num_1 - num_2) < .0000001 * powf(10,-38)) {
-[e $ ! < -> ( _fabsf (1 - _num_1 _num_2 `d * .0.0000001 -> ( _powf (2 , -> -> 10 `i `f -> -U -> 38 `i `f `d 19  ]
-{
-"35
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 35:         return 1;
-[e ) -> 1 `i ]
-[e $UE 18  ]
-"36
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 36:     }
-}
-[e $U 20  ]
-"37
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 37:     else {
-[e :U 19 ]
-{
-"39
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 39:         return 0;
-[e ) -> 0 `i ]
-[e $UE 18  ]
-"40
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 40:     }
-}
-[e :U 20 ]
-"41
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 41: }
-[e :UE 18 ]
-}
-"43
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 43: uint32 doMath(uint32 op, uint32 op1, uint32 op2){
-[v _doMath `(ul ~T0 @X0 1 ef3`ul`ul`ul ]
-{
-[e :U _doMath ]
-[v _op `ul ~T0 @X0 1 r1 ]
-[v _op1 `ul ~T0 @X0 1 r2 ]
-[v _op2 `ul ~T0 @X0 1 r3 ]
-[f ]
-"44
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 44:     if (op== 4294967294)
-[e $ ! == -> _op `o -> 4294967294 `o 22  ]
-"45
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 45:         return (op1*op2);
-[e ) * _op1 _op2 ]
-[e $UE 21  ]
-[e $U 23  ]
-"46
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 46:     else if (op== 4294967293)
-[e :U 22 ]
-[e $ ! == -> _op `o -> 4294967293 `o 24  ]
-"47
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 47:         return (op1/op2);
-[e ) / _op1 _op2 ]
-[e $UE 21  ]
-[e $U 25  ]
-"48
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 48:     else if (op== 4294967295)
-[e :U 24 ]
-[e $ ! == -> _op `o -> 4294967295 `o 26  ]
-"49
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 49:         return (op1+op2);
-[e ) + _op1 _op2 ]
-[e $UE 21  ]
-[e $U 27  ]
-"50
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 50:     else if (op== 4294967292)
-[e :U 26 ]
-[e $ ! == -> _op `o -> 4294967292 `o 28  ]
-"51
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 51:         return (op1-op2);
-[e ) - _op1 _op2 ]
-[e $UE 21  ]
-[e :U 28 ]
-[e :U 27 ]
-[e :U 25 ]
-[e :U 23 ]
-"52
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 52:     return 0;
-[e ) -> -> -> 0 `i `l `ul ]
-[e $UE 21  ]
-"53
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 53: }
-[e :UE 21 ]
-}
-"56
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 56: int Is_digit(float op){
-[v _Is_digit `(i ~T0 @X0 1 ef1`f ]
-{
-[e :U _Is_digit ]
-[v _op `f ~T0 @X0 1 r1 ]
-[f ]
-"57
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 57:     if ((op== 4294967294)||(op== 4294967292)||(op== 4294967293)||(op== 4294967295)||(op== 4294967291)){
-[e $ ! || || || || == _op -> -> 4294967294 `o `f == _op -> -> 4294967292 `o `f == _op -> -> 4294967293 `o `f == _op -> -> 4294967295 `o `f == _op -> -> 4294967291 `o `f 30  ]
-{
-"58
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 58:         return 0;
-[e ) -> 0 `i ]
-[e $UE 29  ]
-"59
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 59:     }
-}
-[e $U 31  ]
-"60
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 60:     else{
-[e :U 30 ]
-{
-"61
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 61:         return 1;
-[e ) -> 1 `i ]
-[e $UE 29  ]
-"62
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 62:     }
-}
-[e :U 31 ]
-"63
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 63: }
-[e :UE 29 ]
-}
-"67
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 67: void initialize_t(struct Stack_t *stack) {
+[; ;Algorithms/Infix_to_postfix/infix_to_post.h: 25: struct Stack {
+[s S10 `uc -> 100 `i `i 1 ]
+[n S10 Stack data top ]
+"16 Algorithms/Infix_to_postfix/infix_to_post.c
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 16: void initialize_t(struct Stack_t *stack) {
 [v _initialize_t `(v ~T0 @X0 1 ef1`*S9 ]
 {
 [e :U _initialize_t ]
 [v _stack `*S9 ~T0 @X0 1 r1 ]
 [f ]
-"68
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 68:     stack->top = -1;
+"17
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 17:     stack->top = -1;
 [e = . *U _stack 1 -U -> 1 `i ]
-"69
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 69: }
-[e :UE 32 ]
+"18
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 18: }
+[e :UE 11 ]
 }
-"72
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 72: void push_t(struct Stack_t *stack, uint32 c) {
-[v _push_t `(v ~T0 @X0 1 ef2`*S9`ul ]
+"21
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 21: void push_t(struct Stack_t *stack, float c) {
+[v _push_t `(v ~T0 @X0 1 ef2`*S9`f ]
 {
 [e :U _push_t ]
 [v _stack `*S9 ~T0 @X0 1 r1 ]
-[v _c `ul ~T0 @X0 1 r2 ]
+[v _c `f ~T0 @X0 1 r2 ]
 [f ]
-"74
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 74:     stack->data[++stack->top] = c;
+"22
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 22:     stack->data[++stack->top] = c;
 [e = *U + &U . *U _stack 0 * -> -> =+ . *U _stack 1 -> 1 `i `ui `ux -> -> # *U &U . *U _stack 0 `ui `ux _c ]
-"75
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 75: }
-[e :UE 33 ]
+"23
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 23: }
+[e :UE 12 ]
 }
-"78
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 78: uint32 pop_t(struct Stack_t *stack) {
-[v _pop_t `(ul ~T0 @X0 1 ef1`*S9 ]
+"26
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 26: float pop_t(struct Stack_t *stack) {
+[v _pop_t `(f ~T0 @X0 1 ef1`*S9 ]
 {
 [e :U _pop_t ]
 [v _stack `*S9 ~T0 @X0 1 r1 ]
 [f ]
-"79
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 79:     return stack->data[stack->top--];
+"27
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 27:     return stack->data[stack->top--];
 [e ) *U + &U . *U _stack 0 * -> -> -- . *U _stack 1 -> 1 `i `ui `ux -> -> # *U &U . *U _stack 0 `ui `ux ]
-[e $UE 34  ]
-"80
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 80: }
-[e :UE 34 ]
+[e $UE 13  ]
+"28
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 28: }
+[e :UE 13 ]
 }
-"82
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 82: int check_digit (char c) {
+"33
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 33: void initialize(struct Stack *stack) {
+[v _initialize `(v ~T0 @X0 1 ef1`*S10 ]
+{
+[e :U _initialize ]
+[v _stack `*S10 ~T0 @X0 1 r1 ]
+[f ]
+"34
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 34:     stack->top = -1;
+[e = . *U _stack 1 -U -> 1 `i ]
+"35
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 35: }
+[e :UE 14 ]
+}
+"38
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 38: void push(struct Stack *stack, char c) {
+[v _push `(v ~T0 @X0 1 ef2`*S10`uc ]
+{
+[e :U _push ]
+[v _stack `*S10 ~T0 @X0 1 r1 ]
+[v _c `uc ~T0 @X0 1 r2 ]
+[f ]
+"39
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 39:     stack->data[++stack->top] = c;
+[e = *U + &U . *U _stack 0 * -> -> =+ . *U _stack 1 -> 1 `i `ui `ux -> -> # *U &U . *U _stack 0 `ui `ux _c ]
+"40
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 40: }
+[e :UE 15 ]
+}
+"43
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 43: char pop(struct Stack *stack) {
+[v _pop `(uc ~T0 @X0 1 ef1`*S10 ]
+{
+[e :U _pop ]
+[v _stack `*S10 ~T0 @X0 1 r1 ]
+[f ]
+"44
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 44:     return stack->data[stack->top--];
+[e ) *U + &U . *U _stack 0 * -> -> -- . *U _stack 1 -> 1 `i `ui `ux -> -> # *U &U . *U _stack 0 `ui `ux ]
+[e $UE 16  ]
+"45
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 45: }
+[e :UE 16 ]
+}
+"47
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 47: int check_digit (char c) {
 [v _check_digit `(i ~T0 @X0 1 ef1`uc ]
 {
 [e :U _check_digit ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"83
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 83:  if ((c>='0') && (c<='9')) return 1;
-[e $ ! && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 36  ]
+"48
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 48:  if ((c>='0') && (c<='9')) return 1;
+[e $ ! && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 18  ]
 [e ) -> 1 `i ]
-[e $UE 35  ]
-[e :U 36 ]
-"84
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 84:  return 0;
+[e $UE 17  ]
+[e :U 18 ]
+"49
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 49:  return 0;
 [e ) -> 0 `i ]
-[e $UE 35  ]
-"85
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 85: }
-[e :UE 35 ]
+[e $UE 17  ]
+"50
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 50: }
+[e :UE 17 ]
 }
-"88
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 88: int precedence(char op) {
+"53
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 53: int precedence(char op) {
 [v _precedence `(i ~T0 @X0 1 ef1`uc ]
 {
 [e :U _precedence ]
 [v _op `uc ~T0 @X0 1 r1 ]
 [f ]
-"89
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 89:     if (op == '+' || op == '-')
-[e $ ! || == -> _op `ui -> 43 `ui == -> _op `ui -> 45 `ui 38  ]
-"90
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 90:         return 1;
+"54
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 54:     if (op == '+' || op == '-')
+[e $ ! || == -> _op `ui -> 43 `ui == -> _op `ui -> 45 `ui 20  ]
+"55
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 55:         return 1;
 [e ) -> 1 `i ]
-[e $UE 37  ]
-[e :U 38 ]
-"91
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 91:     if (op == '*' || op == '/' || op == '%')
-[e $ ! || || == -> _op `ui -> 42 `ui == -> _op `ui -> 47 `ui == -> _op `ui -> 37 `ui 39  ]
-"92
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 92:         return 2;
+[e $UE 19  ]
+[e :U 20 ]
+"56
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 56:     if (op == '*' || op == '/')
+[e $ ! || == -> _op `ui -> 42 `ui == -> _op `ui -> 47 `ui 21  ]
+"57
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 57:         return 2;
 [e ) -> 2 `i ]
-[e $UE 37  ]
-[e :U 39 ]
-"93
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 93:     return 0;
+[e $UE 19  ]
+[e :U 21 ]
+"58
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 58:     return 0;
 [e ) -> 0 `i ]
-[e $UE 37  ]
-"94
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 94: }
-[e :UE 37 ]
+[e $UE 19  ]
+"59
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 59: }
+[e :UE 19 ]
 }
-"97
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 97: void infixToPostfix(const char *infix, uint32 *postfix) {
-[v _infixToPostfix `(v ~T0 @X0 1 ef2`*Cuc`*ul ]
+"61
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 61: float doMath(char op, float op1, float op2){
+[v _doMath `(f ~T0 @X0 1 ef3`uc`f`f ]
+{
+[e :U _doMath ]
+[v _op `uc ~T0 @X0 1 r1 ]
+[v _op1 `f ~T0 @X0 1 r2 ]
+[v _op2 `f ~T0 @X0 1 r3 ]
+[f ]
+"62
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 62:     if (op == '*')
+[e $ ! == -> _op `ui -> 42 `ui 23  ]
+"63
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 63:         return (float)(op1*op2);
+[e ) * _op1 _op2 ]
+[e $UE 22  ]
+[e $U 24  ]
+"64
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 64:     else if (op == '/')
+[e :U 23 ]
+[e $ ! == -> _op `ui -> 47 `ui 25  ]
+"65
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 65:         return (float)(op1/op2);
+[e ) / _op1 _op2 ]
+[e $UE 22  ]
+[e $U 26  ]
+"66
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 66:     else if (op == '+')
+[e :U 25 ]
+[e $ ! == -> _op `ui -> 43 `ui 27  ]
+"67
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 67:         return (float)(op1+op2);
+[e ) + _op1 _op2 ]
+[e $UE 22  ]
+[e $U 28  ]
+"68
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 68:     else if (op == '-')
+[e :U 27 ]
+[e $ ! == -> _op `ui -> 45 `ui 29  ]
+"69
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 69:         return (float)(op1-op2);
+[e ) - _op1 _op2 ]
+[e $UE 22  ]
+[e :U 29 ]
+[e :U 28 ]
+[e :U 26 ]
+[e :U 24 ]
+"70
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 70:     return 0.0;
+[e ) -> .0.0 `f ]
+[e $UE 22  ]
+"71
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 71: }
+[e :UE 22 ]
+}
+"74
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 74: void infixToPostfix(const char *infix, char *postfix) {
+[v _infixToPostfix `(v ~T0 @X0 1 ef2`*Cuc`*uc ]
 {
 [e :U _infixToPostfix ]
 [v _infix `*Cuc ~T0 @X0 1 r1 ]
-[v _postfix `*ul ~T0 @X0 1 r2 ]
+[v _postfix `*uc ~T0 @X0 1 r2 ]
 [f ]
-"98
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 98:     struct Stack_t operatorStack;
-[v _operatorStack `S9 ~T0 @X0 1 a ]
-"99
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 99:     initialize_t(&operatorStack);
-[e ( _initialize_t (1 &U _operatorStack ]
-"100
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 100:     uint32 num_1 = 0;
-[v _num_1 `ul ~T0 @X0 1 a ]
-[e = _num_1 -> -> -> 0 `i `l `ul ]
-"101
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 101:     int i = 0;
+"75
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 75:     struct Stack operatorStack;
+[v _operatorStack `S10 ~T0 @X0 1 a ]
+"76
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 76:     initialize(&operatorStack);
+[e ( _initialize (1 &U _operatorStack ]
+"78
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 78:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"102
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 102:     int j = 0;
+"79
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 79:     int j = 0;
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-"103
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 103:     while (infix[i] != '\0') {
-[e $U 41  ]
-[e :U 42 ]
+"80
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 80:     while (infix[i] != '\0') {
+[e $U 31  ]
+[e :U 32 ]
 {
-"104
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 104:         char current = infix[i];
+"81
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 81:         char current = infix[i];
 [v _current `uc ~T0 @X0 1 a ]
 [e = _current *U + _infix * -> _i `x -> -> # *U _infix `i `x ]
-"106
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 106:         if (current == ' ') {
-[e $ ! == -> _current `ui -> 32 `ui 44  ]
+"83
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 83:         if (current == ' ') {
+[e $ ! == -> _current `ui -> 32 `ui 34  ]
 {
-"107
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 107:             i++;
+"84
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 84:             i++;
 [e ++ _i -> 1 `i ]
-"108
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 108:             continue;
-[e $U 41  ]
-"109
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 109:         }
+"85
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 85:             continue;
+[e $U 31  ]
+"86
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 86:         }
 }
-[e :U 44 ]
-"111
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 111:         if (check_digit(current) || current == '.') {
-[e $ ! || != ( _check_digit (1 _current -> 0 `i == -> _current `ui -> 46 `ui 45  ]
+[e :U 34 ]
+"88
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 88:         if (check_digit(current) || current == '.') {
+[e $ ! || != ( _check_digit (1 _current -> 0 `i == -> _current `ui -> 46 `ui 35  ]
 {
-"112
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 112:             while (check_digit(infix[i]) || infix[i] == '.') {
-[e $U 46  ]
-[e :U 47 ]
+"89
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 89:             while (check_digit(infix[i]) || infix[i] == '.') {
+[e $U 36  ]
+[e :U 37 ]
 {
-"113
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 113:                 num_1 = num_1 * 10 + (infix[i] - '0');
-[e = _num_1 + * _num_1 -> -> -> 10 `i `l `ul -> - -> *U + _infix * -> _i `x -> -> # *U _infix `i `x `ui -> 48 `ui `ul ]
-"114
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 114:                 i++;
-[e ++ _i -> 1 `i ]
-"115
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 115:             }
+"90
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 90:                 postfix[j++] = infix[i++];
+[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x *U + _infix * -> ++ _i -> 1 `i `x -> -> # *U _infix `i `x ]
+"91
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 91:             }
 }
-[e :U 46 ]
-"112
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 112:             while (check_digit(infix[i]) || infix[i] == '.') {
-[e $ || != ( _check_digit (1 *U + _infix * -> _i `x -> -> # *U _infix `i `x -> 0 `i == -> *U + _infix * -> _i `x -> -> # *U _infix `i `x `ui -> 46 `ui 47  ]
-[e :U 48 ]
-"117
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 117:             postfix[j++] = num_1;
-[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x _num_1 ]
-"118
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 118:             num_1 = 0.0;
-[e = _num_1 -> .0.0 `ul ]
-"119
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 119:             postfix[j++] = 4294967291;
-[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x -> -> 4294967291 `o `ul ]
-"121
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 121:         } else {
+[e :U 36 ]
+"89
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 89:             while (check_digit(infix[i]) || infix[i] == '.') {
+[e $ || != ( _check_digit (1 *U + _infix * -> _i `x -> -> # *U _infix `i `x -> 0 `i == -> *U + _infix * -> _i `x -> -> # *U _infix `i `x `ui -> 46 `ui 37  ]
+[e :U 38 ]
+"92
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 92:             postfix[j++] = ' ';
+[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x -> -> 32 `ui `uc ]
+"93
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 93:         }else {
 }
-[e $U 49  ]
-[e :U 45 ]
+[e $U 39  ]
+[e :U 35 ]
 {
-"122
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 122:             while (operatorStack.top != -1 && precedence(current) <= precedence(operatorStack.data[operatorStack.top])) {
-[e $U 50  ]
-[e :U 51 ]
-{
-"123
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 123:                 postfix[j++] = pop_t(&operatorStack);
-[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x ( _pop_t (1 &U _operatorStack ]
-"124
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 124:             }
-}
-[e :U 50 ]
-"122
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 122:             while (operatorStack.top != -1 && precedence(current) <= precedence(operatorStack.data[operatorStack.top])) {
-[e $ && != . _operatorStack 1 -U -> 1 `i <= ( _precedence (1 _current ( _precedence (1 -> *U + &U . _operatorStack 0 * -> -> . _operatorStack 1 `ui `ux -> -> # *U &U . _operatorStack 0 `ui `ux `uc 51  ]
-[e :U 52 ]
-"125
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 125:             push_t(&operatorStack, operator_type(current));
-[e ( _push_t (2 , &U _operatorStack ( _operator_type (1 _current ]
-"127
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 127:             i++;
-[e ++ _i -> 1 `i ]
-"128
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 128:         }
-}
-[e :U 49 ]
-"129
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 129:     }
-}
+"94
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 94:             while (operatorStack.top != -1 && precedence(current) <= precedence(operatorStack.data[operatorStack.top])) {
+[e $U 40  ]
 [e :U 41 ]
+{
+"95
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 95:                 postfix[j++] = pop(&operatorStack);
+[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x ( _pop (1 &U _operatorStack ]
+"96
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 96:             }
+}
+[e :U 40 ]
+"94
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 94:             while (operatorStack.top != -1 && precedence(current) <= precedence(operatorStack.data[operatorStack.top])) {
+[e $ && != . _operatorStack 1 -U -> 1 `i <= ( _precedence (1 _current ( _precedence (1 *U + &U . _operatorStack 0 * -> -> . _operatorStack 1 `ui `ux -> -> # *U &U . _operatorStack 0 `ui `ux 41  ]
+[e :U 42 ]
+"97
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 97:             push(&operatorStack, current);
+[e ( _push (2 , &U _operatorStack _current ]
+"98
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 98:             i++;
+[e ++ _i -> 1 `i ]
+"99
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 99:         }
+}
+[e :U 39 ]
+"100
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 100:     }
+}
+[e :U 31 ]
+"80
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 80:     while (infix[i] != '\0') {
+[e $ != -> *U + _infix * -> _i `x -> -> # *U _infix `i `x `ui -> 0 `ui 32  ]
+[e :U 33 ]
+"102
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 102:     while (operatorStack.top != -1) {
+[e $U 43  ]
+[e :U 44 ]
+{
 "103
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 103:     while (infix[i] != '\0') {
-[e $ != -> *U + _infix * -> _i `x -> -> # *U _infix `i `x `ui -> 0 `ui 42  ]
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 103:         postfix[j++] = pop(&operatorStack);
+[e = *U + _postfix * -> ++ _j -> 1 `i `x -> -> # *U _postfix `i `x ( _pop (1 &U _operatorStack ]
+"104
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 104:     }
+}
 [e :U 43 ]
-"131
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 131:     while (operatorStack.top != -1) {
-[e $U 53  ]
-[e :U 54 ]
-{
-"132
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 132:         postfix[j] = pop_t(&operatorStack);
-[e = *U + _postfix * -> _j `x -> -> # *U _postfix `i `x ( _pop_t (1 &U _operatorStack ]
-"134
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 134:         j++;
-[e ++ _j -> 1 `i ]
-"135
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 135:     }
+"102
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 102:     while (operatorStack.top != -1) {
+[e $ != . _operatorStack 1 -U -> 1 `i 44  ]
+[e :U 45 ]
+"106
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 106:     postfix[j] = '\0';
+[e = *U + _postfix * -> _j `x -> -> # *U _postfix `i `x -> -> 0 `ui `uc ]
+"107
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 107: }
+[e :UE 30 ]
 }
-[e :U 53 ]
-"131
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 131:     while (operatorStack.top != -1) {
-[e $ != . _operatorStack 1 -U -> 1 `i 54  ]
-[e :U 55 ]
-"137
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 137:     postfix[j] = '\0';
-[e = *U + _postfix * -> _j `x -> -> # *U _postfix `i `x -> -> 0 `ui `ul ]
-"138
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 138: }
-[e :UE 40 ]
-}
-"142
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 142: uint32 evaluate_Postfix(const uint32 *postfix){
-[v _evaluate_Postfix `(ul ~T0 @X0 1 ef1`*Cul ]
+"110
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 110: void evaluatePostfix(const char *postfix, float *result) {
+[v _evaluatePostfix `(v ~T0 @X0 1 ef2`*Cuc`*f ]
 {
-[e :U _evaluate_Postfix ]
-[v _postfix `*Cul ~T0 @X0 1 r1 ]
+[e :U _evaluatePostfix ]
+[v _postfix `*Cuc ~T0 @X0 1 r1 ]
+[v _result `*f ~T0 @X0 1 r2 ]
 [f ]
-"143
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 143:     struct Stack_t operandStack;
+"111
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 111:     struct Stack_t operandStack;
 [v _operandStack `S9 ~T0 @X0 1 a ]
-"144
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 144:     initialize_t(&operandStack);
+"112
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 112:     initialize_t(&operandStack);
 [e ( _initialize_t (1 &U _operandStack ]
-"145
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 145:     uint32 operand1 = 0, operand2 = 0, result = 0;
-[v _operand1 `ul ~T0 @X0 1 a ]
-[e = _operand1 -> -> -> 0 `i `l `ul ]
-[v _operand2 `ul ~T0 @X0 1 a ]
-[e = _operand2 -> -> -> 0 `i `l `ul ]
-[v _result `ul ~T0 @X0 1 a ]
-[e = _result -> -> -> 0 `i `l `ul ]
-"146
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 146:     int i = 0;
+"114
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 114:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"147
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 147:     while (postfix[i] != '\0') {
+"115
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 115:     while (postfix[i] != '\0') {
+[e $U 47  ]
+[e :U 48 ]
+{
+"116
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 116:         char current = postfix[i];
+[v _current `uc ~T0 @X0 1 a ]
+[e = _current *U + _postfix * -> _i `x -> -> # *U _postfix `i `x ]
+"118
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 118:         if (check_digit(current) || current == '.') {
+[e $ ! || != ( _check_digit (1 _current -> 0 `i == -> _current `ui -> 46 `ui 50  ]
+{
+"119
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 119:             float num = 0.0;
+[v _num `f ~T0 @X0 1 a ]
+[e = _num -> .0.0 `f ]
+"120
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 120:             int isFractional = 0;
+[v _isFractional `i ~T0 @X0 1 a ]
+[e = _isFractional -> 0 `i ]
+"121
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 121:             float fractionalMultiplier = 0.1;
+[v _fractionalMultiplier `f ~T0 @X0 1 a ]
+[e = _fractionalMultiplier -> .0.1 `f ]
+"123
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 123:             while (check_digit(postfix[i]) || postfix[i] == '.') {
+[e $U 51  ]
+[e :U 52 ]
+{
+"124
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 124:                 if (postfix[i] == '.') {
+[e $ ! == -> *U + _postfix * -> _i `x -> -> # *U _postfix `i `x `ui -> 46 `ui 54  ]
+{
+"125
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 125:                     isFractional = 1;
+[e = _isFractional -> 1 `i ]
+"126
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 126:                     i++;
+[e ++ _i -> 1 `i ]
+"127
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 127:                     continue;
+[e $U 51  ]
+"128
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 128:                 }
+}
+[e :U 54 ]
+"130
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 130:                 if (!isFractional) {
+[e $ ! ! != _isFractional -> 0 `i 55  ]
+{
+"131
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 131:                     num = num * 10 + (postfix[i] - '0');
+[e = _num + * _num -> -> 10 `i `f -> - -> *U + _postfix * -> _i `x -> -> # *U _postfix `i `x `ui -> 48 `ui `f ]
+"132
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 132:                 } else {
+}
+[e $U 56  ]
+[e :U 55 ]
+{
+"133
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 133:                     num += (postfix[i] - '0') * fractionalMultiplier;
+[e =+ _num * -> - -> *U + _postfix * -> _i `x -> -> # *U _postfix `i `x `ui -> 48 `ui `f _fractionalMultiplier ]
+"134
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 134:                     fractionalMultiplier /= 10;
+[e =/ _fractionalMultiplier -> -> 10 `i `f ]
+"135
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 135:                 }
+}
+[e :U 56 ]
+"136
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 136:                 i++;
+[e ++ _i -> 1 `i ]
+"137
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 137:             }
+}
+[e :U 51 ]
+"123
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 123:             while (check_digit(postfix[i]) || postfix[i] == '.') {
+[e $ || != ( _check_digit (1 *U + _postfix * -> _i `x -> -> # *U _postfix `i `x -> 0 `i == -> *U + _postfix * -> _i `x -> -> # *U _postfix `i `x `ui -> 46 `ui 52  ]
+[e :U 53 ]
+"138
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 138:             push_t(&operandStack, num);
+[e ( _push_t (2 , &U _operandStack _num ]
+"139
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 139:             num = 0.0;
+[e = _num -> .0.0 `f ]
+"140
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 140:         } else if (current == ' ') {
+}
 [e $U 57  ]
+[e :U 50 ]
+[e $ ! == -> _current `ui -> 32 `ui 58  ]
+{
+"141
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 141:             i++;
+[e ++ _i -> 1 `i ]
+"142
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 142:         } else {
+}
+[e $U 59  ]
 [e :U 58 ]
 {
-"148
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 148:         uint32 current = postfix[i];
-[v _current `ul ~T0 @X0 1 a ]
-[e = _current *U + _postfix * -> _i `x -> -> # *U _postfix `i `x ]
-"150
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 150:         if (Is_digit(current)){
-[e $ ! != ( _Is_digit (1 -> _current `f -> 0 `i 60  ]
-{
-"152
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 152:             push_t(&operandStack, postfix[i]);
-[e ( _push_t (2 , &U _operandStack *U + _postfix * -> _i `x -> -> # *U _postfix `i `x ]
-"153
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 153:             i++;
-[e ++ _i -> 1 `i ]
-"154
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 154:         }
-}
-[e $U 61  ]
-"155
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 155:         else if (current== 4294967291) {
-[e :U 60 ]
-[e $ ! == -> _current `o -> 4294967291 `o 62  ]
-{
-"157
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 157:             i++;
-[e ++ _i -> 1 `i ]
-"158
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 158:         }
-}
-[e $U 63  ]
-"159
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 159:         else{
-[e :U 62 ]
-{
-"161
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 161:             operand2 = pop_t(&operandStack);
+"143
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 143:             float operand2 = pop_t(&operandStack);
+[v _operand2 `f ~T0 @X0 1 a ]
 [e = _operand2 ( _pop_t (1 &U _operandStack ]
-"163
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 163:             operand1 = pop_t(&operandStack);
+"144
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 144:             float operand1 = pop_t(&operandStack);
+[v _operand1 `f ~T0 @X0 1 a ]
 [e = _operand1 ( _pop_t (1 &U _operandStack ]
-"165
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 165:             result = doMath(current, operand1, operand2);
-[e = _result ( _doMath (3 , , _current _operand1 _operand2 ]
-"167
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 167:             push_t(&operandStack, result);
-[e ( _push_t (2 , &U _operandStack _result ]
-"168
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 168:             i++;
+"145
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 145:             push_t(&operandStack, doMath(current, operand1, operand2));
+[e ( _push_t (2 , &U _operandStack ( _doMath (3 , , _current _operand1 _operand2 ]
+"146
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 146:             i++;
 [e ++ _i -> 1 `i ]
-"169
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 169:         }
-}
-[e :U 63 ]
-[e :U 61 ]
-"171
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 171:     }
-}
-[e :U 57 ]
 "147
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 147:     while (postfix[i] != '\0') {
-[e $ != *U + _postfix * -> _i `x -> -> # *U _postfix `i `x -> -> 0 `ui `ul 58  ]
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 147:         }
+}
 [e :U 59 ]
-"172
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 172:     return pop_t(&operandStack);
-[e ) ( _pop_t (1 &U _operandStack ]
-[e $UE 56  ]
-"173
-[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 173: }
-[e :UE 56 ]
+[e :U 57 ]
+"148
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 148:     }
+}
+[e :U 47 ]
+"115
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 115:     while (postfix[i] != '\0') {
+[e $ != -> *U + _postfix * -> _i `x -> -> # *U _postfix `i `x `ui -> 0 `ui 48  ]
+[e :U 49 ]
+"150
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 150:     *result = (float)pop_t(&operandStack);
+[e = *U _result ( _pop_t (1 &U _operandStack ]
+"151
+[; ;Algorithms/Infix_to_postfix/infix_to_post.c: 151: }
+[e :UE 46 ]
 }
